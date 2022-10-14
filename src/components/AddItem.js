@@ -13,6 +13,7 @@ const AddItem = ({ lists, setLists }) => {
       text: item,
     };
     setLists([...lists, newItem]);
+    setItem('');
   };
 
   return (
