@@ -138,6 +138,13 @@ button {
   color: steelblue;
 }
 
+button:hover,
+button:focus {
+  background-color: rgb(24, 141, 43);
+  color: #fff;
+  outline: none;
+}
+
 .searchForm {
   width: 100%;
   display: flex;

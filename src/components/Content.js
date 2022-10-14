@@ -1,30 +1,6 @@
-import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const Content = () => {
-  const [lists, setLists] = useState([
-    {
-      id: 1,
-      checked: true,
-      text: 'Learn JavaScript',
-    },
-    {
-      id: 2,
-      checked: false,
-      text: 'Learn React',
-    },
-    {
-      id: 3,
-      checked: false,
-      text: 'Learn Ruby',
-    },
-    {
-      id: 4,
-      checked: false,
-      text: 'Learn Ruby On Rails',
-    },
-  ]);
-
+const Content = ({ lists, setLists }) => {
   const handleCheck = (id) => {
     const newLists = lists.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
