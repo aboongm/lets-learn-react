@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import AppBar from './components/AppBar';
 import Content from './components/Content';
-import AddItem from './components/AddItem';
+import InputItem from './components/InputItem';
 import SearchItem from './components/SearchItem';
 
 function App() {
   const [lists, setLists] = useState(
-    JSON.parse(localStorage.getItem('todolist')) || []
+    JSON.parse(localStorage.getItem('todo') || [])
   );
-
   const [search, setSearch] = useState('');
 
+  const setAndSaveItems = (items) => {
+    setLists(items);
+    localStorage.setItem('todo', JSON.stringify(items));
+  };
   return (
-    <div className="App">
-      <Header />
-      <AddItem lists={lists} setLists={setLists} />
+    <main className="container mx-auto">
+      <AppBar />
+      <InputItem
+        lists={lists}
+        setLists={setLists}
+        setAndSaveItems={setAndSaveItems}
+      />
       <SearchItem search={search} setSearch={setSearch} />
       <Content
         lists={lists.filter((item) =>
           item.text.toLowerCase().includes(search.toLowerCase())
         )}
         setLists={setLists}
+        setAndSaveItems={setAndSaveItems}
       />
-      <Footer />
-    </div>
+    </main>
   );
 }
 
