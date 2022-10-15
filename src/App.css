@@ -54,7 +54,7 @@ ul li::before {
   justify-content: flex-start;
   border: 1px solid lightgray;
   padding: 20px 100px;
-  width: calc(100% - 24px);
+  width: 100%;
   min-height: 480px;
 }
 

@@ -7,28 +7,9 @@ import AddItem from './components/AddItem';
 import SearchItem from './components/SearchItem';
 
 function App() {
-  const [lists, setLists] = useState([
-    {
-      id: 1,
-      checked: true,
-      text: 'Learn JavaScript',
-    },
-    {
-      id: 2,
-      checked: false,
-      text: 'Learn React',
-    },
-    {
-      id: 3,
-      checked: false,
-      text: 'Learn Ruby',
-    },
-    {
-      id: 4,
-      checked: false,
-      text: 'Learn Ruby On Rails',
-    },
-  ]);
+  const [lists, setLists] = useState(
+    JSON.parse(localStorage.getItem('todolist')) || []
+  );
 
   const [search, setSearch] = useState('');
 
